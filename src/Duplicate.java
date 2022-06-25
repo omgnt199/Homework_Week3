@@ -2,27 +2,32 @@ import javax.security.auth.login.LoginContext;
 import java.util.*;
 
 public class Duplicate {
-    private  ArrayList<Long> arr1 = new ArrayList<Long>();
-    private  ArrayList<Long> arr2 = new ArrayList<Long>();
-    private  ArrayList<Long> rs = new ArrayList<Long>();
-    private  Set<Long> s = new HashSet<Long>();
+    private  ArrayList<Long> arr1 = new ArrayList<Long>();// Danh sách phần tử thứ nhất
+    private  ArrayList<Long> arr2 = new ArrayList<Long>();// Danh sách phần tử thứ hai
+    private  ArrayList<Long> rs = new ArrayList<Long>(); // Danh sách kết quả
+    private  Set<Long> s = new HashSet<Long>();// Sử dụng set để lưu các phần tử không trùng lặp
 
     public Duplicate() {
     }
 
+    // Phương thức tim danh sách kết quả bài toán
     private void searchDup(){
 
         int k = 0;
+        // Thêm các phần tử ds1 vào Set
         for(Long it:arr1){
             s.add(it);
         }
+        // Thêm các phần tử ds2 vào Set
         for(Long it:arr2){
             s.add(it);
         }
+        //Lưu các phần tử không trùng lặp vào ds kết quả
         for (long it:s
              ) {
             rs.add(it);
         }
+        // Sắp xếp các phần tử theo thứ tự tăng dần
         rs.sort(Comparator.naturalOrder());
     }
     public static void main(String[] args) {
